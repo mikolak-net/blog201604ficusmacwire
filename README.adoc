@@ -1,0 +1,8 @@
+:blogLink: http://mikołak.net/blog/2016/type-safe-config-ficus-macwire.html
+
+= Ficus + Macwire Example
+
+This the final example code for the {blogLink}[Painless, type-safe config file parsing with MacWire and Ficus]
+blog post. Please read the {blogLink}[full post] for more info.
+
+Subsequent commits correspond to the state of the code for the relevant fix attempts.
