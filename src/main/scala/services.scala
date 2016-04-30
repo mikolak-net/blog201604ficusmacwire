@@ -1,3 +1,5 @@
-class HydroService(val config: ServerConfig)
+import com.softwaremill.tagging._
 
-class SensorService(val config: ServerConfig)
+class HydroService(val config: ServerConfig @@ HydroService)
+
+class SensorService(val config: ServerConfig @@ SensorService)
