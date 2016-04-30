@@ -1,5 +1,7 @@
 import com.softwaremill.macwire._
+import com.softwaremill.tagging._
 import com.typesafe.config.ConfigFactory
+import net.ceedubs.ficus.readers.ValueReader
 
 object Run extends App {
 
@@ -7,6 +9,12 @@ object Run extends App {
 
   import net.ceedubs.ficus.Ficus._
   import net.ceedubs.ficus.readers.ArbitraryTypeReader._
+
+  //alt approach
+  //implicit def taggedReader[TType, TTag](implicit reader: ValueReader[TType]) = reader.map(_.taggedWith[TTag])
+
+  //idiomatic approach
+  implicit def taggedReader[TType: ValueReader, TTag] = implicitly[ValueReader[TType]].map(_.taggedWith[TTag])
 
   lazy val config: AppConfig = rawConfig.as[AppConfig]("app")
 
